@@ -1,0 +1,18 @@
+/*
+ * -------------------------------------------------------------
+ *  
+ * File: _vars.scss
+ * Project: WeatherApp
+ * File Created: Monday, 25th January 2021 4:19:57 pm
+ * Author: Lucas Schüller (lucas@amoplex.de)
+ * -----
+ * Last Modified: Monday, 25th January 2021 4:19:57 pm
+ * Modified By: Lucas Schüller (lucas@amoplex.de)
+ * -------------------------------------------------------------
+ */
+
+$color:#fff;
+$shadow: 0 0 30px rgba($color: #000000, $alpha: 0.16);
+$font-style:( "fs-1": (500 3.75rem 'Roboto', sans-serif), "fs-2": (300 3.125rem 'Roboto', sans-serif), "fs-3": (300 1.375rem 'Roboto', sans-serif), "fs-4": (300 .9375rem 'Roboto', sans-serif), "fs-5": (500 .9375rem 'Roboto', sans-serif));
+$weatherBg: ( "01d": linear-gradient(#FDC830, #F37335), "01n": linear-gradient(#0052D4, #4364F7), "02": linear-gradient(#1488CC, #2B32B2), "03": linear-gradient(#1488CC, #2B32B2), "04": linear-gradient(#1488CC, #2B32B2), "09": linear-gradient(#4286F4, #373B44), "10": linear-gradient(#4286F4, #373B44), "11": linear-gradient(#0f0c29, #302b63, #24243e), "13": linear-gradient(#6DD5FA, #2980B9), "50": linear-gradient(#a8c0ff, #3f2b96), );
+$weatherIcon: ( "01d": "../img/icons/002-sunny.svg", "01n": "../img/icons/021-cloudy night.svg", "02": "../img/icons/001-cloudy day.svg", "03": "../img/icons/005-cloudy.svg", "04": "../img/icons/005-cloudy.svg", "09": "../img/icons/012-rainy.svg", "10": "../img/icons/009-rainy.svg", "11": "../img/icons/004-thunderstorm.svg", "13": "../img/icons/008-snowy.svg", "50": "../img/icons/007-windy.svg", );

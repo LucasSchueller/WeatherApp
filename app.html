@@ -1,0 +1,210 @@
+<!--
+-------------------------------------------------------------
+ 
+File: app.html
+Project: WeatherApp
+File Created: Tuesday, 2nd February 2021 5:19:06 pm
+Author: Lucas Schüller (lucas@amoplex.de)
+-----
+Last Modified: Tuesday, 2nd February 2021 5:19:07 pm
+Modified By: Lucas Schüller (lucas@amoplex.de)
+-------------------------------------------------------------
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Weather App | Lucas Schüller</title>
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="assets/font/roboto.css">
+    <link rel="stylesheet" href="assets/css/main.min.css">
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/utilities.js"></script>
+    <script src="assets/js/app.js"></script>
+</head>
+
+<body>
+    <button class="myPos" type="button" onclick="myPosition()">My Position</button>
+    <ul class="main">
+        <li class="card-wrapper" id="c1" data-weather="loading" data-overlay="true">
+            <div class="overlay">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="message"></div>
+            </div>
+            <div class="card">
+                <div class="center">
+                    <h2 data-type="locName"></h2>
+                    <h3 data-type="locTime"></h3>
+                </div>
+                <div class="center">
+                    <div class="img"></div>
+                    <h1 data-type="weatherTemp"></h1>
+                    <div>
+                        <h2 data-type="weatherName"></h2>
+                        <h4 data-type="weatherDesc"></h4>
+                    </div>
+                </div>
+                <ul class="stats">
+                    <li class="stat">
+                        <div>
+                            <h4>Wind speed</h4>
+                            <h5 data-type="windSpeed"></h5>
+                        </div>
+                        <div>
+                            <h4>Wind direction</h4>
+                            <h5 data-type="windDirection"></h5>
+                        </div>
+                    </li>
+                    <li class="stat">
+                        <div>
+                            <h4>Min temp</h4>
+                            <h5 data-type="tempMin"></h5>
+                        </div>
+                        <div>
+                            <h4>Max temp</h4>
+                            <h5 data-type="tempMax"></h5>
+                        </div>
+                    </li>
+                    <li class="stat">
+                        <div>
+                            <h4>Humidity</h4>
+                            <h5 data-type="humidity"></h5>
+                        </div>
+                        <div>
+                            <h4>Pressure</h4>
+                            <h5 data-type="pressure"></h5>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="card-wrapper" id="c2" data-weather="loading" data-overlay="true">
+            <div class="overlay">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="message"></div>
+            </div>
+            <div class="card">
+                <div class="center">
+                    <h2 data-type="locName"></h2>
+                    <h3 data-type="locTime"></h3>
+                </div>
+                <div class="center">
+                    <div class="img"></div>
+                    <h1 data-type="weatherTemp"></h1>
+                    <div>
+                        <h2 data-type="weatherName"></h2>
+                        <h4 data-type="weatherDesc"></h4>
+                    </div>
+                </div>
+                <ul class="stats">
+                    <li class="stat">
+                        <div>
+                            <h4>Wind speed</h4>
+                            <h5 data-type="windSpeed"></h5>
+                        </div>
+                        <div>
+                            <h4>Wind direction</h4>
+                            <h5 data-type="windDirection"></h5>
+                        </div>
+                    </li>
+                    <li class="stat">
+                        <div>
+                            <h4>Min temp</h4>
+                            <h5 data-type="tempMin"></h5>
+                        </div>
+                        <div>
+                            <h4>Max temp</h4>
+                            <h5 data-type="tempMax"></h5>
+                        </div>
+                    </li>
+                    <li class="stat">
+                        <div>
+                            <h4>Humidity</h4>
+                            <h5 data-type="humidity"></h5>
+                        </div>
+                        <div>
+                            <h4>Pressure</h4>
+                            <h5 data-type="pressure"></h5>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="card-wrapper" id="c3" data-weather="loading" data-overlay="true">
+            <div class="overlay">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="message"></div>
+            </div>
+            <div class="card">
+                <div class="center">
+                    <h2 data-type="locName"></h2>
+                    <h3 data-type="locTime"></h3>
+                </div>
+                <div class="center">
+                    <div class="img"></div>
+                    <h1 data-type="weatherTemp"></h1>
+                    <div>
+                        <h2 data-type="weatherName"></h2>
+                        <h4 data-type="weatherDesc"></h4>
+                    </div>
+                </div>
+                <ul class="stats">
+                    <li class="stat">
+                        <div>
+                            <h4>Wind speed</h4>
+                            <h5 data-type="windSpeed"></h5>
+                        </div>
+                        <div>
+                            <h4>Wind direction</h4>
+                            <h5 data-type="windDirection"></h5>
+                        </div>
+                    </li>
+                    <li class="stat">
+                        <div>
+                            <h4>Min temp</h4>
+                            <h5 data-type="tempMin"></h5>
+                        </div>
+                        <div>
+                            <h4>Max temp</h4>
+                            <h5 data-type="tempMax"></h5>
+                        </div>
+                    </li>
+                    <li class="stat">
+                        <div>
+                            <h4>Humidity</h4>
+                            <h5 data-type="humidity"></h5>
+                        </div>
+                        <div>
+                            <h4>Pressure</h4>
+                            <h5 data-type="pressure"></h5>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</body>
+
+</html>

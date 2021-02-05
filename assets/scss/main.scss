@@ -1,0 +1,220 @@
+/*
+ * -------------------------------------------------------------
+ *  
+ * File: main.scss
+ * Project: WeatherApp
+ * File Created: Tuesday, 19th January 2021 8:08:28 am
+ * Author: Lucas Schüller (lucas@amoplex.de)
+ * -----
+ * Last Modified: Tuesday, 19th January 2021 8:08:28 am
+ * Modified By: Lucas Schüller (lucas@amoplex.de)
+ * -------------------------------------------------------------
+ */
+
+@import "imports/reset";
+@import "imports/vars";
+* {
+    transition: all .2s ease-in-out;
+}
+
+body {
+    background: #202124;
+    padding: 50px 0;
+    display: grid;
+    place-content: center;
+}
+
+button.myPos {
+    width: 90vw;
+    max-width: 23.75rem;
+    background: lighten(#202124, 3%);
+    border: none;
+    border-radius: .3125rem;
+    margin: 0 auto;
+    height: 50px;
+    color: #fff;
+    cursor: pointer;
+    font: 500 25px 'Roboto', sans-serif;
+    box-shadow: $shadow;
+    text-transform: uppercase;
+    &:hover {
+        background: lighten(#202124, 7%);
+    }
+    @media screen and (max-width: 1320px) {
+        display: none;
+    }
+}
+
+.main {
+    @media screen and(min-width: 1320px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .card {
+            &:nth-child(2) {
+                margin: 0 20px;
+            }
+        }
+    }
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    margin: auto;
+    .card-wrapper {
+        width: 95%;
+        max-width: 23.75rem;
+        height: 95vh;
+        max-height: 40.625rem;
+        min-height: 37.5rem;
+        border-radius: 12px;
+        box-shadow: $shadow;
+        margin: 20px 0;
+        position: relative;
+        overflow: hidden;
+        .overlay {
+            clip-path: circle(0% at 0 0);
+            background: linear-gradient(to bottom left, #202124, lighten(#202124, 5%));
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            display: grid;
+            place-content: center;
+            transition: all 1s ease-in-out;
+            transition-property: clip-path, background;
+            .message {
+                color: #fff;
+                text-align: center;
+                h4 {
+                    margin-top: 10px;
+                }
+            }
+            ul {
+                width: 130px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                li {
+                    $size: 18px;
+                    width: $size;
+                    height: $size;
+                    border-radius: 50%;
+                    background: rgba($color: #fff, $alpha: .8);
+                    animation: 2s loadingItem ease-in-out infinite;
+                    transition: all .3s ease-in-out;
+                    @for $i from 0 to 5 {
+                        &:nth-child(#{$i}) {
+                            animation-delay: $i*200ms;
+                        }
+                    }
+                }
+            }
+        }
+        &[data-overlay="true"] .overlay {
+            clip-path: circle(150% at 0 0);
+        }
+        &[data-weather="loading"] .overlay {
+            .message {
+                display: none;
+            }
+        }
+        &[data-weather="message"] .overlay {
+            background: linear-gradient(#ED213A, #93291E);
+            ul {
+                display: none;
+            }
+        }
+        .card {
+            width: 100%;
+            height: 100%;
+            padding: 30px;
+            color: $color;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            .img {
+                width: 150px;
+                height: 150px;
+                background-position: center;
+                background-size: cover;
+                margin: 0 auto;
+            }
+            h2 {
+                text-transform: uppercase;
+                &[data-type="locName"] {
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    max-width: 320px;
+                    max-height: 120px;
+                }
+            }
+            h4[data-type="weatherDesc"] {
+                opacity: .5;
+                text-transform: capitalize;
+            }
+            .stats {
+                height: 100px;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                justify-content: center;
+                .stat {
+                    flex: 1 1 auto;
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    h5 {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.center {
+    text-align: center;
+}
+
+@keyframes loadingItem {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+    0% {
+        opacity: 1;
+    }
+}
+
+@for $i from 1 to 6 {
+    h#{$i} {
+        font: map-get($font-style, "fs-"+$i);
+        line-height: 1.2em;
+        transition: font-size none;
+    }
+}
+
+@each $name,
+$gradient in $weatherBg {
+    .card-wrapper[data-weatherIcon="#{$name}"] {
+        background: $gradient;
+    }
+}
+
+@each $name,
+$background in $weatherIcon {
+    .card-wrapper[data-weatherIcon="#{$name}"] .img {
+        background: url($background);
+    }
+}
